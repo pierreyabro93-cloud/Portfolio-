@@ -1,237 +1,1113 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<title>Pierre YABRO — Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#171513">
+<meta name="description" content="Portfolio de Pierre YABRO, graphiste spécialisé en identité visuelle, logos, affiches événementielles et communication digitale à Abidjan.">
+
+<title>Pierre YABRO — Portfolio Graphiste</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --paper:#f4f1ec;
-    --paper-2:#e9e5de;
-    --ink:#171513;
-    --ink-2:#5f5a54;
-    --rule:#cfc9c0;
-    --accent:oklch(0.62 0.2 35);
-    --night:#14120f;
-  }
-  html,body{margin:0;background:#000}
-  deck-stage section{
-    background:var(--paper);color:var(--ink);
-    font-family:'Archivo',sans-serif;font-stretch:100%;
-    box-sizing:border-box;position:relative;overflow:hidden;
-  }
-  .mono{font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:.02em}
-  .folio{position:absolute;left:80px;right:80px;bottom:44px;display:flex;justify-content:space-between;color:var(--ink-2);z-index:5}
-  .folio b{font-weight:500;color:var(--ink)}
-  .dark{background:var(--night)!important;color:#f1ede6!important}
-  .dark .folio{color:#8f877d}
-  .dark .folio b{color:#f1ede6}
+:root {
+    --paper: #f4f1ec;
+    --paper-2: #e9e5de;
+    --ink: #171513;
+    --ink-2: #5f5a54;
+    --rule: #cfc9c0;
+    --accent: #d96a35;
+    --night: #14120f;
+    --white: #ffffff;
+    --radius: 4px;
+}
 
-  .work{display:block;box-shadow:0 2px 4px rgba(0,0,0,.08),0 24px 50px -18px rgba(0,0,0,.35)}
-  .cap{margin-top:22px;display:grid;grid-template-columns:auto 1fr;column-gap:20px;row-gap:4px;align-items:baseline}
-  .cap .n{font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--accent)}
-  .cap .t{font-size:34px;font-weight:700;font-stretch:88%;letter-spacing:-.01em;line-height:1.1}
-  .cap .m{grid-column:2;font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--ink-2)}
-  .dark .cap .m{color:#9c948a}
+* {
+    box-sizing: border-box;
+}
 
-  /* transitions */
-  @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  [data-deck-active] .r{animation:rise .9s cubic-bezier(.2,.7,.1,1) both}
-  [data-deck-active] .f{animation:fade 1.2s ease both}
-  [data-deck-active] .d1{animation-delay:.12s}
-  [data-deck-active] .d2{animation-delay:.24s}
-  [data-deck-active] .d3{animation-delay:.36s}
-  [data-deck-active] .d4{animation-delay:.48s}
-  @media print{ .r,.f{animation:none!important;opacity:1!important;transform:none!important} }
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
 
-  /* cover */
-  .cover-name{position:absolute;left:72px;bottom:150px;font-size:300px;line-height:.82;font-weight:900;font-stretch:72%;letter-spacing:-.03em;text-transform:uppercase;margin:0}
-  .cover-name span{display:block}
-  .cover-name .ac{color:var(--accent)}
-  .cover-tag{position:absolute;left:80px;top:72px;display:flex;gap:48px}
-  .stack{position:absolute;right:60px;top:90px;width:900px;height:860px}
-  .stack img{position:absolute;box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Archivo', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
 
-  /* section opener */
-  .opener-num{position:absolute;left:80px;top:72px}
-  .opener-title{position:absolute;left:72px;bottom:150px;margin:0;font-size:220px;line-height:.86;font-weight:900;font-stretch:70%;text-transform:uppercase;letter-spacing:-.025em}
-  .opener-title em{font-style:normal;color:var(--accent)}
-  .opener-desc{position:absolute;right:80px;bottom:160px;width:520px;font-size:32px;line-height:1.4;color:#b5ada3;text-wrap:pretty;margin:0}
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+.mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .04em;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 72px clamp(22px, 5vw, 80px) 95px;
+    overflow: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    scroll-snap-align: start;
+}
+
+.dark {
+    background: var(--night);
+    color: var(--paper);
+}
+
+.section-label {
+    margin-bottom: 36px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin: 0 0 28px;
+    font-size: clamp(38px, 6vw, 92px);
+    line-height: .98;
+    font-weight: 900;
+    letter-spacing: -.055em;
+    overflow-wrap: anywhere;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.muted {
+    color: var(--ink-2);
+}
+
+.dark .muted {
+    color: #b5ada3;
+}
+
+.folio {
+    position: absolute;
+    right: clamp(22px, 5vw, 80px);
+    bottom: 22px;
+    left: clamp(22px, 5vw, 80px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    color: var(--ink-2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+}
+
+.folio b {
+    color: var(--ink);
+}
+
+.dark .folio {
+    color: #a29a90;
+}
+
+.dark .folio b {
+    color: var(--paper);
+}
+
+.image-frame {
+    width: 100%;
+    overflow: hidden;
+    background: #e9e5de;
+    border: 1px solid rgba(0,0,0,.08);
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.work-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 12px 35px rgba(0,0,0,.12);
+}
+
+.caption {
+    display: grid;
+    grid-template-columns: 35px minmax(0, 1fr);
+    gap: 5px 12px;
+    margin-top: 18px;
+}
+
+.caption-number {
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+}
+
+.caption-title {
+    margin: 0;
+    font-size: clamp(18px, 2.1vw, 29px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -.025em;
+}
+
+.caption-meta {
+    grid-column: 2;
+    color: var(--ink-2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.dark .caption-meta {
+    color: #aaa196;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px;
+    align-items: start;
+}
+
+.project {
+    min-width: 0;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.project.single img {
+    max-height: 75vh;
+    width: auto;
+    max-width: 100%;
+    margin: auto;
+}
+
+.project.single .image-frame {
+    padding: 15px;
+}
+
+.project.single .image-frame img {
+    max-height: 65vh;
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .9fr);
+    gap: 50px;
+    align-items: center;
+    min-height: 65vh;
+}
+
+.hero-title {
+    margin: 0;
+    font-size: clamp(65px, 11vw, 155px);
+    line-height: .82;
+    font-weight: 900;
+    letter-spacing: -.075em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.hero-title span {
+    display: block;
+}
+
+.hero-description {
+    max-width: 440px;
+    margin: 30px 0 0;
+    font-size: clamp(16px, 2vw, 23px);
+    line-height: 1.55;
+    color: #b5ada3;
+}
+
+.cover {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 35px;
+    background: var(--paper);
+}
+
+.cover-tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.cover-tag span:last-child {
+    color: var(--accent);
+}
+
+.cover-layout {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 30px;
+    align-items: center;
+    min-height: 75vh;
+    padding: 45px 0;
+}
+
+.cover-name {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(65px, 11vw, 160px);
+    line-height: .82;
+    letter-spacing: -.075em;
+    font-weight: 900;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.cover-name span {
+    display: block;
+}
+
+.cover-art {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.cover-art img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 15px 40px rgba(0,0,0,.16);
+}
+
+.cover-art img:nth-child(2) {
+    margin-top: 35px;
+}
+
+.cover-art img:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 82%;
+    margin: -10px auto 0;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr);
+    gap: 65px;
+}
+
+.about-statement {
+    margin: 0 0 32px;
+    font-size: clamp(30px, 5vw, 66px);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -.04em;
+}
+
+.about-description {
+    max-width: 720px;
+    color: var(--ink-2);
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.75;
+}
+
+.expertise-title {
+    margin: 0 0 20px;
+    color: var(--ink-2);
+}
+
+.expertise-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    font-size: clamp(17px, 2vw, 26px);
+    font-weight: 700;
+}
+
+.expertise-item span:last-child {
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+}
+
+.chapter-number {
+    margin-bottom: 35px;
+}
+
+.contact-section {
+    background: var(--accent);
+    color: #fff8f2;
+}
+
+.contact-title {
+    margin: 50px 0;
+    font-size: clamp(52px, 10vw, 145px);
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -.065em;
+    overflow-wrap: anywhere;
+}
+
+.contact-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.contact-email {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: clamp(18px, 3.5vw, 43px);
+    font-weight: 700;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact-services {
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: right;
+}
+
+.navigation {
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    transform: translateY(-50%);
+}
+
+.navigation a {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border: 1px solid #8e8275;
+    border-radius: 50%;
+    background: rgba(244,241,236,.7);
+}
+
+.navigation a:hover,
+.navigation a:focus {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.back-top {
+    position: fixed;
+    z-index: 100;
+    right: 18px;
+    bottom: 18px;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 3px;
+    background: var(--ink);
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+img {
+    background-color: transparent;
+}
+
+@media (min-width: 1500px) {
+    section {
+        padding-right: max(80px, calc((100vw - 1600px)/2));
+        padding-left: max(80px, calc((100vw - 1600px)/2));
+    }
+}
+
+@media (max-width: 850px) {
+    html {
+        scroll-snap-type: none;
+    }
+
+    section {
+        min-height: auto;
+        padding: 45px 22px 75px;
+    }
+
+    .cover {
+        min-height: 100svh;
+    }
+
+    .cover-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 65px 0 35px;
+    }
+
+    .cover-name {
+        font-size: clamp(58px, 15vw, 115px);
+    }
+
+    .cover-art {
+        max-width: 560px;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        min-height: auto;
+        padding: 35px 0;
+    }
+
+    .hero-title {
+        font-size: clamp(54px, 12vw, 105px);
+    }
+
+    .hero-description {
+        margin-top: 0;
+    }
+
+    .contact-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 50px;
+    }
+
+    .contact-services {
+        text-align: left;
+    }
+
+    .navigation {
+        right: 5px;
+        gap: 7px;
+    }
+
+    .navigation a {
+        width: 7px;
+        height: 7px;
+    }
+
+    .folio {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin-top: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 32px 17px 55px;
+    }
+
+    .cover-tag {
+        gap: 8px 14px;
+        font-size: 10px;
+    }
+
+    .cover-name {
+        font-size: clamp(50px, 15vw, 75px);
+    }
+
+    .cover-art {
+        gap: 9px;
+    }
+
+    .section-title {
+        font-size: 39px;
+    }
+
+    .caption {
+        grid-template-columns: 26px minmax(0, 1fr);
+        gap: 6px 8px;
+    }
+
+    .caption-title {
+        font-size: 20px;
+    }
+
+    .folio {
+        font-size: 9px;
+    }
+
+    .contact-title {
+        font-size: 52px;
+    }
+
+    .contact-email {
+        font-size: 18px;
+    }
+
+    .navigation {
+        display: none;
+    }
+}
+
+@media print {
+    .navigation,
+    .back-top {
+        display: none;
+    }
+
+    section {
+        min-height: auto;
+        break-after: page;
+        overflow: visible;
+    }
+
+    .folio {
+        position: static;
+        margin-top: 30px;
+    }
+}
 </style>
 </head>
+
 <body>
-<deck-stage width="1920" height="1080">
 
-  <!-- 01 COVER -->
-  <section data-label="Couverture">
-    <div class="cover-tag mono r">
-      <span>Portfolio</span><span>Design graphique</span><span>2019 — 2026</span>
-    </div>
-    <div class="stack">
-      <img class="f d1" src="img/06-republic-festival.jpg" style="height:620px;left:40px;top:150px;transform:rotate(-6deg)">
-      <img class="f d2" src="img/04-sainte-cene.jpg" style="height:560px;left:330px;top:40px;transform:rotate(3deg)">
-      <img class="f d3" src="img/01-soiree-gloire.jpg" style="width:640px;left:250px;top:470px;transform:rotate(-1.5deg)">
-    </div>
-    <h1 class="cover-name r d1"><span>Pierre</span><span class="ac">Yabro</span></h1>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Graphiste</span><span>pierreyabro93@gmail.com</span></div>
-  </section>
+<nav class="navigation" aria-label="Navigation entre les sections">
+    <a href="#accueil" aria-label="Accueil"></a>
+    <a href="#apropos" aria-label="À propos"></a>
+    <a href="#affiches" aria-label="Affiches"></a>
+    <a href="#gloire" aria-label="Grande soirée de gloire"></a>
+    <a href="#priere" aria-label="Jeûne et prière"></a>
+    <a href="#saintecene" aria-label="Sainte-Cène"></a>
+    <a href="#pentecote" aria-label="Pentecôte"></a>
+    <a href="#festival" aria-label="Festival"></a>
+    <a href="#concerts" aria-label="Concerts"></a>
+    <a href="#logos" aria-label="Logos"></a>
+    <a href="#identites" aria-label="Identités visuelles"></a>
+    <a href="#contact" aria-label="Contact"></a>
+</nav>
 
-  <!-- 02 ABOUT -->
-  <section data-label="À propos">
-    <div style="position:absolute;left:80px;top:72px" class="mono r">À propos</div>
-    <p class="r d1" style="position:absolute;left:80px;top:180px;width:1100px;margin:0;font-size:64px;line-height:1.12;font-weight:600;font-stretch:90%;letter-spacing:-.015em;text-wrap:pretty">
-      Graphiste créatif, je transforme les idées en créations visuelles <span style="color:var(--accent)">modernes, percutantes et professionnelles.</span>
+<!-- 01 : COUVERTURE -->
+<section class="cover" id="accueil">
+    <div class="cover-tag mono">
+        <span>Portfolio</span>
+        <span>Design graphique</span>
+        <span>2019 — 2026</span>
+    </div>
+
+    <div class="cover-layout">
+        <div>
+            <h1 class="cover-name">
+                <span>Pierre</span>
+                <span class="accent">YABRO</span>
+            </h1>
+            <p class="mono muted" style="margin-top:25px">
+                GRAPHISTE · ABIDJAN, CÔTE D'IVOIRE
+            </p>
+        </div>
+
+        <div class="cover-art">
+            <img src="img/06-republic-festival.jpg"
+                 alt="Affiche Republic Festival"
+                 loading="eager">
+
+            <img src="img/04-sainte-cene.jpg"
+                 alt="Affiche de la Sainte-Cène"
+                 loading="eager">
+
+            <img src="img/01-soiree-gloire.jpg"
+                 alt="Affiche Grande soirée de gloire"
+                 loading="eager">
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Graphiste</span>
+        <span>01 / 12</span>
+    </div>
+</section>
+
+<!-- 02 : À PROPOS -->
+<section id="apropos">
+    <div class="section-label">À propos de moi</div>
+
+    <div class="about-layout">
+        <div>
+            <p class="about-statement">
+                Graphiste créatif, je transforme les idées en créations visuelles
+                <span class="accent">modernes, percutantes et professionnelles.</span>
+            </p>
+
+            <p class="about-description">
+                Spécialisé dans la conception d'identités visuelles, de logos,
+                d'affiches publicitaires et de visuels pour les réseaux sociaux.
+                Mes créations accompagnent principalement des églises,
+                des structures événementielles et des festivals à Abidjan.
+            </p>
+        </div>
+
+        <div>
+            <p class="expertise-title mono">MES EXPERTISES</p>
+
+            <div class="expertise-item">
+                <span>Identité visuelle</span>
+                <span>01</span>
+            </div>
+
+            <div class="expertise-item">
+                <span>Logos</span>
+                <span>02</span>
+            </div>
+
+            <div class="expertise-item">
+                <span>Affiches publicitaires</span>
+                <span>03</span>
+            </div>
+
+            <div class="expertise-item">
+                <span>Réseaux sociaux</span>
+                <span>04</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Portfolio</span>
+        <span>02 / 12</span>
+    </div>
+</section>
+
+<!-- 03 : OUVERTURE AFFICHES -->
+<section class="dark" id="affiches">
+    <div class="section-label chapter-number">CHAPITRE 01 — COMMUNICATION ÉVÉNEMENTIELLE</div>
+
+    <div class="hero-layout">
+        <h2 class="hero-title">
+            Affiches
+            <span class="accent">événementielles</span>
+        </h2>
+
+        <p class="hero-description">
+            Cultes, soirées, festivals et concerts : des affiches pensées
+            pour attirer l'attention, communiquer un message et valoriser
+            chaque événement, sur papier comme sur les réseaux sociaux.
+        </p>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Portfolio</span>
+        <span>03 / 12</span>
+    </div>
+</section>
+
+<!-- 04 : GRANDE SOIRÉE DE GLOIRE -->
+<section id="gloire">
+    <div class="section-label">01 — GRANDE SOIRÉE DE GLOIRE</div>
+
+    <div class="projects-grid">
+        <div class="project single">
+            <img class="work-image"
+                 src="img/01-soiree-gloire.jpg"
+                 alt="Affiche Tu verras la gloire de Dieu"
+                 loading="lazy">
+        </div>
+
+        <div class="project">
+            <div class="mono accent">PROJET 01</div>
+
+            <h2 class="section-title" style="margin-top:20px">
+                Tu verras la gloire de Dieu
+            </h2>
+
+            <p class="muted" style="line-height:1.8">
+                Grande soirée de gloire<br>
+                Génération Chrétienne d'Impact<br>
+                2026
+            </p>
+
+            <p style="line-height:1.8">
+                Conception d'une affiche événementielle destinée à annoncer
+                une rencontre chrétienne et à mettre en valeur son thème.
+            </p>
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Affiches</span>
+        <span>04 / 12</span>
+    </div>
+</section>
+
+<!-- 05 : JEÛNE ET ANNÉE DE GLOIRE -->
+<section id="priere">
+    <div class="section-label">02 — CAMPAGNES ET COMMUNICATION RELIGIEUSE</div>
+
+    <div class="projects-grid">
+        <div class="project">
+            <img class="work-image"
+                 src="img/02-10-jours.jpg"
+                 alt="Affiche 10 jours de jeûne et prière"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">02</span>
+                <h3 class="caption-title">10 jours de jeûne et prière</h3>
+                <div class="caption-meta">GCI — Janvier 2024</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img class="work-image"
+                 src="img/03-2025-gloire.jpg"
+                 alt="Affiche 2025 année de gloire et de règne"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">03</span>
+                <h3 class="caption-title">2025, année de gloire et de règne</h3>
+                <div class="caption-meta">GCI — Affiche annuelle 2025</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Affiches</span>
+        <span>05 / 12</span>
+    </div>
+</section>
+
+<!-- 06 : SAINTE-CÈNE ET PROGRAMME -->
+<section class="dark" id="saintecene">
+    <div class="section-label">03 — COMMUNICATION D'ÉGLISE</div>
+
+    <div class="projects-grid">
+        <div class="project">
+            <img class="work-image"
+                 src="img/04-sainte-cene.jpg"
+                 alt="Affiche Le mystère de la Sainte-Cène"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">04</span>
+                <h3 class="caption-title">Le mystère de la Sainte-Cène</h3>
+                <div class="caption-meta">GCI — Mars 2025</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img class="work-image"
+                 src="img/11-programme-eglise.jpg"
+                 alt="Programme de l'église"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">05</span>
+                <h3 class="caption-title">Programme de l'église</h3>
+                <div class="caption-meta">GCI — Visuel pour réseaux sociaux</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Affiches</span>
+        <span>06 / 12</span>
+    </div>
+</section>
+
+<!-- 07 : CÔTE D'IVOIRE ET PENTECÔTE -->
+<section id="pentecote">
+    <div class="section-label">04 — CÉLÉBRATIONS ET CULTES SPÉCIAUX</div>
+
+    <div class="projects-grid">
+        <div class="project">
+            <img class="work-image"
+                 src="img/05-cote-ivoire.jpg"
+                 alt="Affiche La Côte d'Ivoire appartient à l'Éternel"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">06</span>
+                <h3 class="caption-title">La Côte d'Ivoire appartient à l'Éternel</h3>
+                <div class="caption-meta">Culte spécial — Mai 2024</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img class="work-image"
+                 src="img/07-pentecote.jpg"
+                 alt="Affiche Pentecôte 2024"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">07</span>
+                <h3 class="caption-title">Pentecôte 2024</h3>
+                <div class="caption-meta">Une génération nouvelle — GCI</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Affiches</span>
+        <span>07 / 12</span>
+    </div>
+</section>
+
+<!-- 08 : FESTIVAL ET CULTE PROPHÉTIQUE -->
+<section style="background:var(--paper-2)" id="festival">
+    <div class="section-label">05 — FESTIVALS ET RENCONTRES</div>
+
+    <div class="projects-grid">
+        <div class="project">
+            <img class="work-image"
+                 src="img/06-republic-festival.jpg"
+                 alt="Affiche Republic Festival, Festival de Gospel Urbain d'Abidjan"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">08</span>
+                <h3 class="caption-title">Festival de Gospel Urbain d'Abidjan</h3>
+                <div class="caption-meta">Republic Festival — 4ᵉ édition</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img class="work-image"
+                 src="img/08-culte-prophetique.jpg"
+                 alt="Affiche Culte prophétique"
+                 loading="lazy">
+
+            <div class="caption">
+                <span class="caption-number">09</span>
+                <h3 class="caption-title">Culte prophétique</h3>
+                <div class="caption-meta">Tu es le choix de Dieu — Novembre 2023</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Affiches</span>
+        <span>08 / 12</span>
+    </div>
+</section>
+
+<!-- 09 : CONCERTS DE CHARITÉ -->
+<section id="concerts">
+    <div class="section-label">06 — STRUCTURE ÉVÉNEMENTIELLE GENYA</div>
+
+    <h2 class="section-title">Concerts de charité</h2>
+
+    <p class="muted" style="max-width:650px;line-height:1.8;margin-bottom:40px">
+        Une série d'affiches conçues pour promouvoir des événements
+        de solidarité et de musique.
     </p>
-    <p class="r d2" style="position:absolute;left:80px;top:560px;width:820px;margin:0;font-size:30px;line-height:1.5;color:var(--ink-2);text-wrap:pretty">
-      Spécialisé dans la conception d’identités visuelles, de logos, d’affiches publicitaires et de visuels pour les réseaux sociaux — principalement pour des églises, des structures événementielles et des festivals à Abidjan.
-    </p>
-    <div class="r d3" style="position:absolute;right:80px;top:180px;width:520px">
-      <div class="mono" style="color:var(--ink-2);margin-bottom:24px">Expertises</div>
-      <div style="border-top:2px solid var(--ink)">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Identité visuelle</span><span class="mono" style="color:var(--accent)">01</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Logos</span><span class="mono" style="color:var(--accent)">02</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Affiches publicitaires</span><span class="mono" style="color:var(--accent)">03</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Réseaux sociaux</span><span class="mono" style="color:var(--accent)">04</span></div>
-      </div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Portfolio</span><span>02</span></div>
-  </section>
 
-  <!-- 03 OPENER AFFICHES -->
-  <section class="dark" data-label="Affiches — ouverture">
-    <div class="opener-num mono r">Chapitre 01</div>
-    <img class="f" src="img/03-2025-gloire.jpg" style="position:absolute;right:-120px;top:-60px;width:1100px;opacity:.16;transform:rotate(4deg)">
-    <h2 class="opener-title r d1">Affiches<br><em>événementielles</em></h2>
-    <p class="opener-desc r d2">Cultes, soirées, festivals et concerts : des affiches pensées pour être lues en un regard, imprimées en grand format et partagées sur les réseaux.</p>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Portfolio</span><span>03</span></div>
-  </section>
+    <div class="projects-grid">
+        <div class="project">
+            <img class="work-image"
+                 src="img/09-concert-charite-2019.jpg"
+                 alt="Affiche Concert de charité 2019"
+                 loading="lazy">
 
-  <!-- 04 SOIREE GLOIRE -->
-  <section data-label="Grande soirée de gloire">
-    <div style="position:absolute;left:80px;top:72px">
-      <img class="work r" src="img/01-soiree-gloire.jpg" style="height:820px">
-    </div>
-    <div class="r d2" style="position:absolute;right:80px;top:72px;width:330px">
-      <div class="cap" style="margin-top:0;grid-template-columns:1fr">
-        <div class="n">01</div>
-        <div class="t" style="font-size:44px">Tu verras la gloire de Dieu</div>
-        <div class="m" style="grid-column:1;margin-top:12px">Grande soirée de gloire<br>Génération Chrétienne d’Impact<br>2026</div>
-      </div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>04</span></div>
-  </section>
+            <div class="caption">
+                <span class="caption-number">10</span>
+                <h3 class="caption-title">Concert de charité</h3>
+                <div class="caption-meta">Édition 2019</div>
+            </div>
+        </div>
 
-  <!-- 05 10 JOURS + 2025 -->
-  <section data-label="10 jours / 2025">
-    <div style="position:absolute;left:80px;top:96px;width:860px" class="r">
-      <img class="work" src="img/02-10-jours.jpg" style="width:860px">
-      <div class="cap"><span class="n">02</span><span class="t">10 jours de jeûne et prière</span><span class="m">GCI — Janvier 2024</span></div>
-    </div>
-    <div style="position:absolute;right:80px;top:96px;width:860px" class="r d2">
-      <img class="work" src="img/03-2025-gloire.jpg" style="width:860px">
-      <div class="cap"><span class="n">03</span><span class="t">2025, année de gloire et de règne</span><span class="m">GCI — Affiche annuelle 2025</span></div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>05</span></div>
-  </section>
+        <div class="project">
+            <img class="work-image"
+                 src="img/10-concert-charite-2020.jpg"
+                 alt="Affiche Concert de charité 2020"
+                 loading="lazy">
 
-  <!-- 06 SAINTE CENE + PROGRAMME (dark) -->
-  <section class="dark" data-label="Sainte-Cène / Programme">
-    <div style="position:absolute;left:80px;top:72px" class="r">
-      <img class="work" src="img/04-sainte-cene.jpg" style="height:720px">
-      <div class="cap"><span class="n">04</span><span class="t">Le mystère de la Sainte-Cène</span><span class="m">GCI — Mars 2025</span></div>
+            <div class="caption">
+                <span class="caption-number">11</span>
+                <h3 class="caption-title">Concert de charité</h3>
+                <div class="caption-meta">Édition 2020</div>
+            </div>
+        </div>
     </div>
-    <div style="position:absolute;right:80px;top:72px;width:940px" class="r d2">
-      <img class="work" src="img/11-programme-eglise.jpg" style="width:940px">
-      <div class="cap"><span class="n">05</span><span class="t">Programme de l’église</span><span class="m">GCI — Visuel réseaux sociaux</span></div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>06</span></div>
-  </section>
 
-  <!-- 07 COTE D'IVOIRE + PENTECOTE -->
-  <section data-label="Côte d’Ivoire / Pentecôte">
-    <div style="position:absolute;left:80px;top:96px;width:860px" class="r">
-      <img class="work" src="img/05-cote-ivoire.jpg" style="width:860px">
-      <div class="cap"><span class="n">06</span><span class="t">La Côte d’Ivoire appartient à l’Éternel</span><span class="m">Culte spécial — Mai 2024</span></div>
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Affiches</span>
+        <span>09 / 12</span>
     </div>
-    <div style="position:absolute;right:80px;top:96px;width:780px" class="r d2">
-      <img class="work" src="img/07-pentecote.jpg" style="width:780px">
-      <div class="cap"><span class="n">07</span><span class="t">Pentecôte 2024</span><span class="m">Une génération nouvelle — GCI</span></div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>07</span></div>
-  </section>
+</section>
 
-  <!-- 08 REPUBLIC + CULTE PROPHETIQUE -->
-  <section data-label="Republic Festival / Culte prophétique" style="background:var(--paper-2)">
-    <div style="position:absolute;left:80px;top:72px;display:flex;gap:40px;align-items:flex-end" class="r">
-      <img class="work" src="img/06-republic-festival.jpg" style="height:860px">
-      <div class="cap" style="width:300px;grid-template-columns:1fr;margin-bottom:6px">
-        <span class="n">08</span><span class="t">Festival de Gospel Urbain d’Abidjan</span><span class="m" style="grid-column:1">Republic Festival<br>4ᵉ édition</span>
-      </div>
-    </div>
-    <div style="position:absolute;right:80px;top:72px;width:720px" class="r d2">
-      <img class="work" src="img/08-culte-prophetique.jpg" style="width:720px">
-      <div class="cap"><span class="n">09</span><span class="t">Culte prophétique</span><span class="m">Tu es le choix de Dieu — Nov. 2023</span></div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>08</span></div>
-  </section>
+<!-- 10 : OUVERTURE LOGOS -->
+<section class="dark" id="logos">
+    <div class="section-label">CHAPITRE 02 — IDENTITÉ VISUELLE</div>
 
-  <!-- 09 CONCERTS GENYA -->
-  <section data-label="Concerts de charité">
-    <div style="position:absolute;left:80px;top:72px" class="mono r">Série — Structure événementielle GenYa</div>
-    <div style="position:absolute;left:80px;top:150px;width:860px" class="r d1">
-      <img class="work" src="img/09-concert-charite-2019.jpg" style="width:860px">
-      <div class="cap"><span class="n">10</span><span class="t">Concert de charité</span><span class="m">Édition 2019</span></div>
-    </div>
-    <div style="position:absolute;right:80px;top:150px;width:860px" class="r d2">
-      <img class="work" src="img/10-concert-charite-2020.jpg" style="width:860px">
-      <div class="cap"><span class="n">11</span><span class="t">Concert de charité</span><span class="m">Édition 2020</span></div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>09</span></div>
-  </section>
+    <div class="hero-layout">
+        <h2 class="hero-title">
+            Logos
+            <span class="accent">&amp; identités</span>
+        </h2>
 
-  <!-- 10 OPENER LOGOS -->
-  <section class="dark" data-label="Logos — ouverture">
-    <div class="opener-num mono r">Chapitre 02</div>
-    <h2 class="opener-title r d1">Logos &amp;<br><em>identités</em></h2>
-    <p class="opener-desc r d2">Des emblèmes qui condensent la mission d’une communauté en un seul signe, lisible du badge à la bâche.</p>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Portfolio</span><span>10</span></div>
-  </section>
+        <p class="hero-description">
+            Des emblèmes conçus pour représenter une communauté,
+            transmettre ses valeurs et renforcer son identité visuelle.
+        </p>
+    </div>
 
-  <!-- 11 LOGOS -->
-  <section data-label="Logos" style="background:#fff">
-    <div style="position:absolute;left:80px;top:72px;width:860px" class="r">
-      <div style="height:760px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--rule)">
-        <img src="img/12-logo-jeunesse.jpg" style="height:680px">
-      </div>
-      <div class="cap"><span class="n">12</span><span class="t">Jeunesse rassemblée pour le Christ</span><span class="m">Logo — 2026</span></div>
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Portfolio</span>
+        <span>10 / 12</span>
     </div>
-    <div style="position:absolute;right:80px;top:72px;width:860px" class="r d2">
-      <div style="height:760px;display:flex;align-items:center;justify-content:center;background:#f7f2e8;border:1px solid var(--rule)">
-        <img src="img/13-logo-congregation.jpg" style="height:680px">
-      </div>
-      <div class="cap"><span class="n">13</span><span class="t">Congrégation internationale des jeunes serviteurs</span><span class="m">Logo — 2026</span></div>
-    </div>
-    <div class="folio mono"><span><b>Pierre YABRO</b> — Logos</span><span>11</span></div>
-  </section>
+</section>
 
-  <!-- 12 CONTACT -->
-  <section data-label="Contact" style="background:var(--accent);color:#fff8f2">
-    <div style="position:absolute;left:80px;top:72px" class="mono r">Contact</div>
-    <h2 class="r d1" style="position:absolute;left:72px;top:200px;margin:0;font-size:200px;line-height:.86;font-weight:900;font-stretch:70%;text-transform:uppercase;letter-spacing:-.025em">Travaillons<br>ensemble.</h2>
-    <div class="r d2" style="position:absolute;left:80px;bottom:150px">
-      <div class="mono" style="opacity:.8;margin-bottom:14px">Écrivez-moi</div>
-      <div style="font-size:84px;font-weight:600;font-stretch:85%;letter-spacing:-.01em">pierreyabro93@gmail.com</div>
-    </div>
-    <div class="r d3" style="position:absolute;right:80px;bottom:160px;text-align:right;font-size:30px;line-height:1.5">
-      Identités visuelles · Logos<br>Affiches · Réseaux sociaux
-    </div>
-    <div class="folio mono" style="color:#ffe3d6"><span><b style="color:#fff">Pierre YABRO</b> — Graphiste</span><span>12</span></div>
-  </section>
+<!-- 11 : LOGOS -->
+<section id="identites">
+    <div class="section-label">07 — CRÉATION DE LOGOS</div>
 
-</deck-stage>
-<script src="deck_stage.js"></script>
+    <div class="projects-grid">
+        <div class="project">
+            <div class="image-frame" style="background:#fff;padding:15px">
+                <img src="img/12-logo-jeunesse.jpg"
+                     alt="Logo Jeunesse rassemblée pour le Christ"
+                     loading="lazy">
+            </div>
+
+            <div class="caption">
+                <span class="caption-number">12</span>
+                <h3 class="caption-title">Jeunesse rassemblée pour le Christ</h3>
+                <div class="caption-meta">Logo — 2026</div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="image-frame" style="background:#f7f2e8;padding:15px">
+                <img src="img/13-logo-congregation.jpg"
+                     alt="Logo Congrégation internationale des jeunes serviteurs"
+                     loading="lazy">
+            </div>
+
+            <div class="caption">
+                <span class="caption-number">13</span>
+                <h3 class="caption-title">Congrégation internationale des jeunes serviteurs</h3>
+                <div class="caption-meta">Logo — 2026</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="folio">
+        <span><b>Pierre YABRO</b> — Identité visuelle</span>
+        <span>11 / 12</span>
+    </div>
+</section>
+
+<!-- 12 : CONTACT -->
+<section class="contact-section" id="contact">
+    <div class="section-label">CONTACT — COLLABORATIONS</div>
+
+    <h2 class="contact-title">
+        Travaillons<br>ensemble.
+    </h2>
+
+    <div class="contact-layout">
+        <div>
+            <div class="mono">ÉCRIVEZ-MOI</div>
+
+            <a class="contact-email"
+               href="mailto:pierreyabro93@gmail.com">
+                pierreyabro93@gmail.com
+            </a>
+        </div>
+
+        <div class="contact-services">
+            Identités visuelles<br>
+            Logos<br>
+            Affiches événementielles<br>
+            Réseaux sociaux
+        </div>
+    </div>
+
+    <div class="folio" style="color:#ffe3d6">
+        <span><b style="color:#fff">Pierre YABRO</b> — Graphiste</span>
+        <span>12 / 12</span>
+    </div>
+</section>
+
+<a href="#accueil" class="back-top">↑ HAUT</a>
+
+<script>
+(function () {
+    "use strict";
+
+    // Vérification des images du portfolio.
+    document.querySelectorAll("img").forEach(function (img) {
+        img.addEventListener("error", function () {
+            console.error("Image introuvable :", img.getAttribute("src"));
+
+            img.style.minHeight = "50px";
+            img.style.border = "1px dashed #d96a35";
+            img.style.backgroundColor = "#e9e5de";
+            img.alt = "Image introuvable : " + img.getAttribute("src");
+        });
+    });
+
+    // Navigation : affichage du lien de section actif.
+    if ("IntersectionObserver" in window) {
+        const sections = document.querySelectorAll("body > section");
+        const links = document.querySelectorAll(".navigation a");
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+
+                const activeId = entry.target.id;
+
+                links.forEach(function (link) {
+                    if (link.getAttribute("href") === "#" + activeId) {
+                        link.style.backgroundColor = "#d96a35";
+                        link.style.borderColor = "#d96a35";
+                    } else {
+                        link.style.backgroundColor = "";
+                        link.style.borderColor = "";
+                    }
+                });
+            });
+        }, {
+            threshold: 0.35
+        });
+
+        sections.forEach(function (section) {
+            observer.observe(section);
+        });
+    }
+})();
+</script>
+
 </body>
 </html>
