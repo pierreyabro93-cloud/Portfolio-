@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Pierre YABRO — Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ec;
+    --paper-2:#e9e5de;
+    --ink:#171513;
+    --ink-2:#5f5a54;
+    --rule:#cfc9c0;
+    --accent:oklch(0.62 0.2 35);
+    --night:#14120f;
+  }
+  html,body{margin:0;background:#000}
+  deck-stage section{
+    background:var(--paper);color:var(--ink);
+    font-family:'Archivo',sans-serif;font-stretch:100%;
+    box-sizing:border-box;position:relative;overflow:hidden;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:.02em}
+  .folio{position:absolute;left:80px;right:80px;bottom:44px;display:flex;justify-content:space-between;color:var(--ink-2);z-index:5}
+  .folio b{font-weight:500;color:var(--ink)}
+  .dark{background:var(--night)!important;color:#f1ede6!important}
+  .dark .folio{color:#8f877d}
+  .dark .folio b{color:#f1ede6}
+
+  .work{display:block;box-shadow:0 2px 4px rgba(0,0,0,.08),0 24px 50px -18px rgba(0,0,0,.35)}
+  .cap{margin-top:22px;display:grid;grid-template-columns:auto 1fr;column-gap:20px;row-gap:4px;align-items:baseline}
+  .cap .n{font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--accent)}
+  .cap .t{font-size:34px;font-weight:700;font-stretch:88%;letter-spacing:-.01em;line-height:1.1}
+  .cap .m{grid-column:2;font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--ink-2)}
+  .dark .cap .m{color:#9c948a}
+
+  /* transitions */
+  @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  [data-deck-active] .r{animation:rise .9s cubic-bezier(.2,.7,.1,1) both}
+  [data-deck-active] .f{animation:fade 1.2s ease both}
+  [data-deck-active] .d1{animation-delay:.12s}
+  [data-deck-active] .d2{animation-delay:.24s}
+  [data-deck-active] .d3{animation-delay:.36s}
+  [data-deck-active] .d4{animation-delay:.48s}
+  @media print{ .r,.f{animation:none!important;opacity:1!important;transform:none!important} }
+
+  /* cover */
+  .cover-name{position:absolute;left:72px;bottom:150px;font-size:300px;line-height:.82;font-weight:900;font-stretch:72%;letter-spacing:-.03em;text-transform:uppercase;margin:0}
+  .cover-name span{display:block}
+  .cover-name .ac{color:var(--accent)}
+  .cover-tag{position:absolute;left:80px;top:72px;display:flex;gap:48px}
+  .stack{position:absolute;right:60px;top:90px;width:900px;height:860px}
+  .stack img{position:absolute;box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+
+  /* section opener */
+  .opener-num{position:absolute;left:80px;top:72px}
+  .opener-title{position:absolute;left:72px;bottom:150px;margin:0;font-size:220px;line-height:.86;font-weight:900;font-stretch:70%;text-transform:uppercase;letter-spacing:-.025em}
+  .opener-title em{font-style:normal;color:var(--accent)}
+  .opener-desc{position:absolute;right:80px;bottom:160px;width:520px;font-size:32px;line-height:1.4;color:#b5ada3;text-wrap:pretty;margin:0}
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section data-label="Couverture">
+    <div class="cover-tag mono r">
+      <span>Portfolio</span><span>Design graphique</span><span>2019 — 2026</span>
+    </div>
+    <div class="stack">
+      <img class="f d1" src="img/06-republic-festival.jpg" style="height:620px;left:40px;top:150px;transform:rotate(-6deg)">
+      <img class="f d2" src="img/04-sainte-cene.jpg" style="height:560px;left:330px;top:40px;transform:rotate(3deg)">
+      <img class="f d3" src="img/01-soiree-gloire.jpg" style="width:640px;left:250px;top:470px;transform:rotate(-1.5deg)">
+    </div>
+    <h1 class="cover-name r d1"><span>Pierre</span><span class="ac">Yabro</span></h1>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Graphiste</span><span>pierreyabro93@gmail.com</span></div>
+  </section>
+
+  <!-- 02 ABOUT -->
+  <section data-label="À propos">
+    <div style="position:absolute;left:80px;top:72px" class="mono r">À propos</div>
+    <p class="r d1" style="position:absolute;left:80px;top:180px;width:1100px;margin:0;font-size:64px;line-height:1.12;font-weight:600;font-stretch:90%;letter-spacing:-.015em;text-wrap:pretty">
+      Graphiste créatif, je transforme les idées en créations visuelles <span style="color:var(--accent)">modernes, percutantes et professionnelles.</span>
+    </p>
+    <p class="r d2" style="position:absolute;left:80px;top:560px;width:820px;margin:0;font-size:30px;line-height:1.5;color:var(--ink-2);text-wrap:pretty">
+      Spécialisé dans la conception d’identités visuelles, de logos, d’affiches publicitaires et de visuels pour les réseaux sociaux — principalement pour des églises, des structures événementielles et des festivals à Abidjan.
+    </p>
+    <div class="r d3" style="position:absolute;right:80px;top:180px;width:520px">
+      <div class="mono" style="color:var(--ink-2);margin-bottom:24px">Expertises</div>
+      <div style="border-top:2px solid var(--ink)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Identité visuelle</span><span class="mono" style="color:var(--accent)">01</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Logos</span><span class="mono" style="color:var(--accent)">02</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Affiches publicitaires</span><span class="mono" style="color:var(--accent)">03</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);font-size:38px;font-weight:600;font-stretch:88%"><span>Réseaux sociaux</span><span class="mono" style="color:var(--accent)">04</span></div>
+      </div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Portfolio</span><span>02</span></div>
+  </section>
+
+  <!-- 03 OPENER AFFICHES -->
+  <section class="dark" data-label="Affiches — ouverture">
+    <div class="opener-num mono r">Chapitre 01</div>
+    <img class="f" src="img/03-2025-gloire.jpg" style="position:absolute;right:-120px;top:-60px;width:1100px;opacity:.16;transform:rotate(4deg)">
+    <h2 class="opener-title r d1">Affiches<br><em>événementielles</em></h2>
+    <p class="opener-desc r d2">Cultes, soirées, festivals et concerts : des affiches pensées pour être lues en un regard, imprimées en grand format et partagées sur les réseaux.</p>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Portfolio</span><span>03</span></div>
+  </section>
+
+  <!-- 04 SOIREE GLOIRE -->
+  <section data-label="Grande soirée de gloire">
+    <div style="position:absolute;left:80px;top:72px">
+      <img class="work r" src="img/01-soiree-gloire.jpg" style="height:820px">
+    </div>
+    <div class="r d2" style="position:absolute;right:80px;top:72px;width:330px">
+      <div class="cap" style="margin-top:0;grid-template-columns:1fr">
+        <div class="n">01</div>
+        <div class="t" style="font-size:44px">Tu verras la gloire de Dieu</div>
+        <div class="m" style="grid-column:1;margin-top:12px">Grande soirée de gloire<br>Génération Chrétienne d’Impact<br>2026</div>
+      </div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>04</span></div>
+  </section>
+
+  <!-- 05 10 JOURS + 2025 -->
+  <section data-label="10 jours / 2025">
+    <div style="position:absolute;left:80px;top:96px;width:860px" class="r">
+      <img class="work" src="img/02-10-jours.jpg" style="width:860px">
+      <div class="cap"><span class="n">02</span><span class="t">10 jours de jeûne et prière</span><span class="m">GCI — Janvier 2024</span></div>
+    </div>
+    <div style="position:absolute;right:80px;top:96px;width:860px" class="r d2">
+      <img class="work" src="img/03-2025-gloire.jpg" style="width:860px">
+      <div class="cap"><span class="n">03</span><span class="t">2025, année de gloire et de règne</span><span class="m">GCI — Affiche annuelle 2025</span></div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>05</span></div>
+  </section>
+
+  <!-- 06 SAINTE CENE + PROGRAMME (dark) -->
+  <section class="dark" data-label="Sainte-Cène / Programme">
+    <div style="position:absolute;left:80px;top:72px" class="r">
+      <img class="work" src="img/04-sainte-cene.jpg" style="height:720px">
+      <div class="cap"><span class="n">04</span><span class="t">Le mystère de la Sainte-Cène</span><span class="m">GCI — Mars 2025</span></div>
+    </div>
+    <div style="position:absolute;right:80px;top:72px;width:940px" class="r d2">
+      <img class="work" src="img/11-programme-eglise.jpg" style="width:940px">
+      <div class="cap"><span class="n">05</span><span class="t">Programme de l’église</span><span class="m">GCI — Visuel réseaux sociaux</span></div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>06</span></div>
+  </section>
+
+  <!-- 07 COTE D'IVOIRE + PENTECOTE -->
+  <section data-label="Côte d’Ivoire / Pentecôte">
+    <div style="position:absolute;left:80px;top:96px;width:860px" class="r">
+      <img class="work" src="img/05-cote-ivoire.jpg" style="width:860px">
+      <div class="cap"><span class="n">06</span><span class="t">La Côte d’Ivoire appartient à l’Éternel</span><span class="m">Culte spécial — Mai 2024</span></div>
+    </div>
+    <div style="position:absolute;right:80px;top:96px;width:780px" class="r d2">
+      <img class="work" src="img/07-pentecote.jpg" style="width:780px">
+      <div class="cap"><span class="n">07</span><span class="t">Pentecôte 2024</span><span class="m">Une génération nouvelle — GCI</span></div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>07</span></div>
+  </section>
+
+  <!-- 08 REPUBLIC + CULTE PROPHETIQUE -->
+  <section data-label="Republic Festival / Culte prophétique" style="background:var(--paper-2)">
+    <div style="position:absolute;left:80px;top:72px;display:flex;gap:40px;align-items:flex-end" class="r">
+      <img class="work" src="img/06-republic-festival.jpg" style="height:860px">
+      <div class="cap" style="width:300px;grid-template-columns:1fr;margin-bottom:6px">
+        <span class="n">08</span><span class="t">Festival de Gospel Urbain d’Abidjan</span><span class="m" style="grid-column:1">Republic Festival<br>4ᵉ édition</span>
+      </div>
+    </div>
+    <div style="position:absolute;right:80px;top:72px;width:720px" class="r d2">
+      <img class="work" src="img/08-culte-prophetique.jpg" style="width:720px">
+      <div class="cap"><span class="n">09</span><span class="t">Culte prophétique</span><span class="m">Tu es le choix de Dieu — Nov. 2023</span></div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>08</span></div>
+  </section>
+
+  <!-- 09 CONCERTS GENYA -->
+  <section data-label="Concerts de charité">
+    <div style="position:absolute;left:80px;top:72px" class="mono r">Série — Structure événementielle GenYa</div>
+    <div style="position:absolute;left:80px;top:150px;width:860px" class="r d1">
+      <img class="work" src="img/09-concert-charite-2019.jpg" style="width:860px">
+      <div class="cap"><span class="n">10</span><span class="t">Concert de charité</span><span class="m">Édition 2019</span></div>
+    </div>
+    <div style="position:absolute;right:80px;top:150px;width:860px" class="r d2">
+      <img class="work" src="img/10-concert-charite-2020.jpg" style="width:860px">
+      <div class="cap"><span class="n">11</span><span class="t">Concert de charité</span><span class="m">Édition 2020</span></div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Affiches</span><span>09</span></div>
+  </section>
+
+  <!-- 10 OPENER LOGOS -->
+  <section class="dark" data-label="Logos — ouverture">
+    <div class="opener-num mono r">Chapitre 02</div>
+    <h2 class="opener-title r d1">Logos &amp;<br><em>identités</em></h2>
+    <p class="opener-desc r d2">Des emblèmes qui condensent la mission d’une communauté en un seul signe, lisible du badge à la bâche.</p>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Portfolio</span><span>10</span></div>
+  </section>
+
+  <!-- 11 LOGOS -->
+  <section data-label="Logos" style="background:#fff">
+    <div style="position:absolute;left:80px;top:72px;width:860px" class="r">
+      <div style="height:760px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--rule)">
+        <img src="img/12-logo-jeunesse.jpg" style="height:680px">
+      </div>
+      <div class="cap"><span class="n">12</span><span class="t">Jeunesse rassemblée pour le Christ</span><span class="m">Logo — 2026</span></div>
+    </div>
+    <div style="position:absolute;right:80px;top:72px;width:860px" class="r d2">
+      <div style="height:760px;display:flex;align-items:center;justify-content:center;background:#f7f2e8;border:1px solid var(--rule)">
+        <img src="img/13-logo-congregation.jpg" style="height:680px">
+      </div>
+      <div class="cap"><span class="n">13</span><span class="t">Congrégation internationale des jeunes serviteurs</span><span class="m">Logo — 2026</span></div>
+    </div>
+    <div class="folio mono"><span><b>Pierre YABRO</b> — Logos</span><span>11</span></div>
+  </section>
+
+  <!-- 12 CONTACT -->
+  <section data-label="Contact" style="background:var(--accent);color:#fff8f2">
+    <div style="position:absolute;left:80px;top:72px" class="mono r">Contact</div>
+    <h2 class="r d1" style="position:absolute;left:72px;top:200px;margin:0;font-size:200px;line-height:.86;font-weight:900;font-stretch:70%;text-transform:uppercase;letter-spacing:-.025em">Travaillons<br>ensemble.</h2>
+    <div class="r d2" style="position:absolute;left:80px;bottom:150px">
+      <div class="mono" style="opacity:.8;margin-bottom:14px">Écrivez-moi</div>
+      <div style="font-size:84px;font-weight:600;font-stretch:85%;letter-spacing:-.01em">pierreyabro93@gmail.com</div>
+    </div>
+    <div class="r d3" style="position:absolute;right:80px;bottom:160px;text-align:right;font-size:30px;line-height:1.5">
+      Identités visuelles · Logos<br>Affiches · Réseaux sociaux
+    </div>
+    <div class="folio mono" style="color:#ffe3d6"><span><b style="color:#fff">Pierre YABRO</b> — Graphiste</span><span>12</span></div>
+  </section>
+
+</deck-stage>
+<script src="deck_stage.js"></script>
+</body>
+</html>
